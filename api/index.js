@@ -1,9 +1,11 @@
-const express = require("express");
-const mongoose = require("mongoose");
-require("dotenv").config();
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 const app = express();
-
 const PORT = 5000;
+
+import userRoutes from "./routes/user.routes.js";
 
 // mongo db url
 mongoose
@@ -19,9 +21,7 @@ mongoose
 
 //   testing routes
 
-app.get("/", (req, res) => {
-  res.send("Hello from server side of mern blog app");
-});
+app.use("/api/user", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Mern blog server is running on port: ${PORT}`);
