@@ -6,6 +6,10 @@ const app = express();
 const PORT = 5000;
 
 import userRoutes from "./routes/user.routes.js";
+import authRoutes from "./routes/auth.routes.js";
+
+// middleware
+app.use(express.json());
 
 // mongo db url
 mongoose
@@ -19,13 +23,12 @@ mongoose
     console.log(error);
   });
 
-//   testing routes
+//   all routes
 
 app.use("/api/user", userRoutes);
+app.use("/api/auth", authRoutes);
 
+// testing api
 app.listen(PORT, () => {
   console.log(`Mern blog server is running on port: ${PORT}`);
 });
-
-// mern-blog-user
-// 3lsXOdWMp7RiG0g3
