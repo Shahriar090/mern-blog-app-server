@@ -36,7 +36,7 @@ export const signup = async (req, res, next) => {
 // sign in route
 
 export const signin = async (req, res, next) => {
-  const { userName: email, password } = req.body;
+  const { email, password } = req.body;
 
   if (!email || !password || email === "" || password === "") {
     next(errorHandler(400, "All Fields Are Required"));
