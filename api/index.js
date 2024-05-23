@@ -1,15 +1,16 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import userRoutes from "./routes/user.routes.js";
+import authRoutes from "./routes/auth.routes.js";
 dotenv.config();
 const app = express();
 const PORT = 5000;
 
-import userRoutes from "./routes/user.routes.js";
-import authRoutes from "./routes/auth.routes.js";
-
 // middleware
 app.use(express.json());
+app.use(cookieParser());
 
 // mongo db url
 mongoose
@@ -41,6 +42,9 @@ app.use((err, req, res, next) => {
 });
 
 // testing api
+app.get("/", async (req, res) => {
+  res.send("Mern Blog Server Is Running Smoothly");
+});
 app.listen(PORT, () => {
   console.log(`Mern blog server is running on port: ${PORT}`);
 });
