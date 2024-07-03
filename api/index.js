@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import userRoutes from "./routes/user.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import postRoute from "./routes/post.route.js";
+import commentRoute from "./routes/comment.route.js";
 dotenv.config();
 const app = express();
 const PORT = 5000;
@@ -30,6 +31,7 @@ mongoose
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/post", postRoute);
+app.use("/api/comment", commentRoute);
 
 // middleware for error handling
 
