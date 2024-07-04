@@ -4,6 +4,7 @@ import {
   createComment,
   deleteComment,
   editComment,
+  getComments,
   getPostComments,
   likeComment,
 } from "../controllers/comment.controller.js";
@@ -12,6 +13,7 @@ commentRoute.post("/create", verifyToken, createComment);
 commentRoute.get("/getPostComments/:postId", getPostComments);
 commentRoute.put("/likeComment/:commentId", verifyToken, likeComment);
 commentRoute.put("/editComment/:commentId", verifyToken, editComment);
-commentRoute.put("/deleteComment/:commentId", verifyToken, deleteComment);
+commentRoute.delete("/deleteComment/:commentId", verifyToken, deleteComment);
+commentRoute.get("/getComments", verifyToken, getComments);
 
 export default commentRoute;
