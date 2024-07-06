@@ -6,6 +6,7 @@ import userRoutes from "./routes/user.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import postRoute from "./routes/post.route.js";
 import commentRoute from "./routes/comment.route.js";
+import cors from "cors";
 dotenv.config();
 const app = express();
 const PORT = 5000;
@@ -13,7 +14,7 @@ const PORT = 5000;
 // middleware
 app.use(express.json());
 app.use(cookieParser());
-
+app.use(cors());
 // mongo db url
 mongoose
   .connect(
