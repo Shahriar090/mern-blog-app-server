@@ -1,4 +1,4 @@
-import Comment from "../models/Comment.model.js";
+import Comment from "../models/comment.model.js";
 
 export const createComment = async (req, res, next) => {
   try {
@@ -133,15 +133,13 @@ export const getComments = async (req, res, next) => {
     const lastMonthComments = await Comment.countDocuments({
       createdAt: { $gte: oneMonthAgo },
     });
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "All Comments Retrieved Successfully",
-        comments,
-        totalComments,
-        lastMonthComments,
-      });
+    res.status(200).json({
+      success: true,
+      message: "All Comments Retrieved Successfully",
+      comments,
+      totalComments,
+      lastMonthComments,
+    });
   } catch (error) {
     next(error);
   }
