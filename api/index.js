@@ -14,7 +14,7 @@ const PORT = 5000;
 // middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: "https://wander-words.netlify.app" }));
+app.use(cors({ origin: "*" }));
 // mongo db url
 mongoose
   .connect(

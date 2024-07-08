@@ -29,6 +29,14 @@ const postSchema = new Schema(
       required: true,
       unique: true,
     },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    views: { type: Number, default: 0 },
+    minutesRead: { type: Number, default: 0 },
+    likes: { type: Number, default: 0 },
   },
   { timestamps: true }
 );
