@@ -11,10 +11,15 @@ dotenv.config();
 const app = express();
 const PORT = 5000;
 
+const corsOptions = {
+  origin: ["http://localhost:5173", "https://wander-words.netlify.app"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
 // middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: "https://wander-words.netlify.app" }));
+app.use(cors(corsOptions));
 // mongo db url
 mongoose
   .connect(
