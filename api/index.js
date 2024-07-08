@@ -9,7 +9,7 @@ import commentRoute from "./routes/comment.route.js";
 import cors from "cors";
 dotenv.config();
 const app = express();
-const PORT = 5000 || 6000;
+const PORT = 6000;
 
 const corsOptions = {
   origin: ["http://localhost:5173", "https://wander-words.netlify.app"],
